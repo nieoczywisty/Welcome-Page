@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Simple Post -->
+<section class="simple-post" th:fragment="aboutMe">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="assets/images/simple-post.jpg" alt="">
+                <div class="down-content">
+                    <p th:text="${aboutMeString}"></p>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+
+</body>
+</html>
