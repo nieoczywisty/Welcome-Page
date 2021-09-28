@@ -33,7 +33,7 @@ public class VehicleWebClient {
         model.addAttribute("page","gpsData");
         model.addAttribute("gpsData",vehListJson);
 
-        return "index";
+        return "GPSDATA";
     }
 
 

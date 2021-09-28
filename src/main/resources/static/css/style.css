@@ -1,6 +1,10 @@
 html{
-    width: auto;
+    width: 1920px;
     text-align: center;
+    margin: auto;
+}
+head, body{
+    margin: 0;
 }
 #selfie {
     padding-top: 1%;
@@ -9,17 +13,18 @@ html{
 .monitor{
     max-height: 300px;
     opacity: 50%;
+
 }
 .monitor:hover{
     opacity: initial;
 }
 
 #navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    width: auto;
+    max-width: 1920px;
     z-index: 999;
 }
 
@@ -29,7 +34,9 @@ html{
     padding: 0;
     overflow: hidden;
     background-image: url("/images/stockvault-abstract-background177709.jpg");
-    background-attachment: fixed;    background-size: cover;    opacity: 90%;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 90%;
 }
 
 #navbar li {

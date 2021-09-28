@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Hello, World!</title>
     <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="/js/gpsOnClick.js"></script>
     <header>
         <nav>
             <div id="navbar">
@@ -20,7 +21,8 @@
 <body>
 <div id="home" class="content">
     <div class="chatBubble">
-        <h1>Hi, I'm nieoczywisty.<br>Hopefuly soon java oriented junior. But hey you've got to sell yourself somehow, right? :) </h1>
+        <h1>Hi, I'm nieoczywisty.<br>Hopefuly soon java oriented junior. But hey you've got to sell yourself somehow,
+            right? :) </h1>
     </div>
     <section id="about">
         <div>
@@ -32,7 +34,6 @@
                 remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
                 containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
                 including versions of Lorem Ipsum.</p>
-
         </div>
         <img id="selfie" src="images/photo.png">
     </section>
@@ -41,14 +42,14 @@
         <div>
             <div class="monitorLink">
                 <a href="https://www.linkedin.com/in/nieoczywisty/">
-                <img class="monitor" src="images/monitor.png">
+                    <img class="monitor" src="images/monitor.png">
                 </a>
                 <p>Source Code</p>
             </div>
             <div class="aboutProject">
                 <div>
                     <h2>Welcome Page</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    <p id="welcomePage">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                         when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                         It has survived not only five centuries, but also the leap into electronic typesetting,
@@ -57,8 +58,11 @@
                         containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
                         PageMaker
                         including versions of Lorem Ipsum.</p>
+                    <button id="showMap">Click me</button>
                 </div>
             </div>
+        </div>
+        <div id="mapPlaceholder">
         </div>
         <div>
             <div class="monitorLink">
@@ -97,7 +101,9 @@
                         containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
                         PageMaker
                         including versions of Lorem Ipsum.</p>
-                    <button class="open-window">Open</button>
+                    <form action="/getGpsData">
+                        <input type="submit" value="Open Map"></input>
+                    </form>
                 </div>
             </div>
         </div>
