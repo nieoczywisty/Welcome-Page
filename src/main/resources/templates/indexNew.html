@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title>Hello, World!</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="/js/gpsOnClick.js"></script>
-    <header>
-        <nav>
-            <div id="navbar">
-                <ul>
-                    <li><a class="navbar" href="#home">Home</a></li>
-                    <li><a class="navbar" href="#about">About</a></li>
-                    <li><a class="navbar" href="#portfolio">Portfolio</a></li>
-                    <li><a class="navbar" href="#contacts">Contact Me</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔰</text></svg>">
+    <script type="text/javascript" src="/js/showMapButton.js"></script>
+
+    <div id="navbar">
+        <ul>
+            <li><a class="navbar" href="#home">Home</a></li>
+            <li><a class="navbar" href="#about">About</a></li>
+            <li><a class="navbar" href="#skills">Skills</a></li>
+            <li><a class="navbar" href="#portfolio">Portfolio</a></li>
+            <li><a class="navbar" href="#contacts">Contact Me</a></li>
+        </ul>
+    </div>
 </head>
+
 <body>
 <div id="home" class="content">
     <div class="chatBubble">
-        <h1>Hi, I'm nieoczywisty.<br>Hopefuly soon java oriented junior. But hey you've got to sell yourself somehow,
-            right? :) </h1>
+        <h1>Hi, I'm nieoczywisty.<br>Mostly back-end oriented.But hey you've got to sell yourself somehow, right? :)
+        </h1>
     </div>
     <section id="about">
         <div>
@@ -34,44 +35,62 @@
                 remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
                 containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
                 including versions of Lorem Ipsum.</p>
+
         </div>
-        <img id="selfie" src="images/photo.png">
+        <img id="selfie" src="/images/photo.png">
+    </section>
+    <section id="skills">
+        <div>
+            <h2>Skills</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.</p>
+
+        </div>
     </section>
     <section id="portfolio">
-        <h2>Portfolio</h2>
+        <h1>Portfolio</h1>
+        <h2>Welcome Page</h2>
         <div>
             <div class="monitorLink">
-                <a href="https://www.linkedin.com/in/nieoczywisty/">
-                    <img class="monitor" src="images/monitor.png">
+                <a href="https://github.com/nieoczywisty/Welcome-Page">
+                    <img class="monitor" src="/images/monitor.png">
                 </a>
                 <p>Source Code</p>
             </div>
             <div class="aboutProject">
                 <div>
-                    <h2>Welcome Page</h2>
-                    <p id="welcomePage">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        It has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                        sheets
-                        containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                        PageMaker
-                        including versions of Lorem Ipsum.</p>
-                    <button id="showMap">Click me</button>
+                    <p>This project gathers all my knowledge so far. In the back-end I've created spring boot app that handles http requests, calls external Rest API found on
+                        <a href="https://dane.gov.pl/"> https://dane.gov.pl/</a> and collects data in JSON format.
+                        Using unmarshalling I've crated POJO classes corresponding to data recieved from API.
+                        Collected data contains information such as: GPS positions, signal quality, number of the vehicle etc.
+                        from public transportation company in Gdańsk. Then I wanted to present this data somehow, so I've added Leaflet map with marked positions of all vehicles.
+                        You can click on any marker and see what line is it. After pressing the button below a new iFrame is created and loaded with map populated with collected data and new
+                        table is created, all using some javascript. The table contains basic info of first 10 vehicles from the list. I"ve done a little cheat here because I cannot access model attributes directly
+                        from javascript. The Json string is first loaded into hidden element and then accessed in javascript as variable.
+                    </p>
+                    <button id="showMap">Show Map</button>
                 </div>
             </div>
         </div>
         <div id="mapPlaceholder">
+            <input id="tableData" type="hidden" data-textJSON="${gpsTableData}"/>
+            <p hidden id="tableJson" th:text = "${gpsTableData}"></p>
         </div>
+        <h2>Java FX</h2>
         <div>
             <div class="monitorLink">
-                <img class="monitor" src="images/monitor.png">
+                <a href="https://github.com/nieoczywisty/Welcome-Page">
+                    <img class="monitor" src="/images/monitor.png">
+                </a>
                 <p>Source Code</p>
             </div>
             <div class="aboutProject">
                 <div>
-                    <h2>Java FX</h2>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                         when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -84,14 +103,16 @@
                 </div>
             </div>
         </div>
+        <h2>Swing</h2>
         <div>
             <div class="monitorLink">
-                <img class="monitor" src="images/monitor.png">
+                <a href="https://github.com/nieoczywisty/Welcome-Page">
+                    <img class="monitor" src="/images/monitor.png">
+                </a>
                 <p>Source Code</p>
             </div>
             <div class="aboutProject">
                 <div>
-                    <h2>Java FX</h2>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                         when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -101,9 +122,30 @@
                         containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
                         PageMaker
                         including versions of Lorem Ipsum.</p>
-                    <form action="/getGpsData">
-                        <input type="submit" value="Open Map"></input>
-                    </form>
+                    <button class="open-window">Open</button>
+                </div>
+            </div>
+        </div>
+        <h2>Plain JAVA</h2>
+        <div>
+            <div class="monitorLink">
+                <a href="https://github.com/nieoczywisty/Welcome-Page">
+                    <img class="monitor" src="/images/monitor.png">
+                </a>
+                <p>Source Code</p>
+            </div>
+            <div class="aboutProject">
+                <div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        It has survived not only five centuries, but also the leap into electronic typesetting,
+                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                        sheets
+                        containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+                        PageMaker
+                        including versions of Lorem Ipsum.</p>
+                    <button class="open-window">Open</button>
                 </div>
             </div>
         </div>
@@ -113,19 +155,19 @@
         <div class="links">
             <div>
                 <a href="https://www.linkedin.com/in/nieoczywisty/">
-                    <img src="images/linkedin_icon.png" alt="LinkedInLogo" style="width:42px;height:42px;">
+                    <img src="/images/linkedin_icon.png" alt="LinkedInLogo" style="width:42px;height:42px;">
                 </a>
                 <a href="https://www.linkedin.com/in/nieoczywisty/">LinkedIn</a>
             </div>
             <div>
                 <a href="https://hyperskill.org/profile/2066949">
-                    <img src="images/jetbrains_icon.png" alt="JBALogo" style="width:42px;height:42px;">
+                    <img src="/images/jetbrains_icon.png" alt="JBALogo" style="width:42px;height:42px;">
                 </a>
                 <a href="https://hyperskill.org/profile/2066949">JetBrains Academy</a>
             </div>
             <div>
                 <a href="https://github.com/nieoczywisty">
-                    <img src="images/github-icon.png" alt="LinkedInLogo" style="width:42px;height:42px;">
+                    <img src="/images/github-icon.png" alt="LinkedInLogo" style="width:42px;height:42px;">
                 </a>
                 <a href="https://github.com/nieoczywisty">GitHub</a>
             </div>

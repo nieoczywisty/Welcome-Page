@@ -1,68 +1,62 @@
-html{
-    width: 1920px;
+html {
+    width: 100%;
     text-align: center;
     margin: auto;
 }
-head, body{
-    margin: 0;
-}
-#selfie {
-    padding-top: 1%;
-    max-height: 300px;
-}
-.monitor{
-    max-height: 300px;
-    opacity: 50%;
 
+head, body {
+    margin: auto;
 }
-.monitor:hover{
+
+#selfie {
+    padding-top: 5%;
+    height: 15vw;
+}
+
+.monitor {
+    height: 10vw;
+    opacity: 50%;
+}
+
+.monitor:hover {
     opacity: initial;
 }
 
 #navbar {
     position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    max-width: 1920px;
     z-index: 999;
 }
 
 #navbar ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 0%;
     overflow: hidden;
-    background-image: url("/images/stockvault-abstract-background177709.jpg");
+    background: radial-gradient(ellipse at bottom, #5091DD 0%, #030617 100%);
     background-attachment: fixed;
     background-size: cover;
     opacity: 90%;
 }
 
 #navbar li {
-    padding-left: 5%;
+    padding: 2%;
     float: left;
 }
 
 #navbar li a {
     display: block;
     color: white;
-    text-align: left;
-    padding: 16px 16px;
     text-decoration: none;
 }
 
-#navbar li a:hover:not(.active) {
-    background-color: #5c9b9b;
-}
-
-header {
-    background-color: #5c9b9b;
+#navbar :hover:not(.active) {
+    background-color: #5091DD;
 }
 
 .content {
     padding-top: 5%;
-    background-image: url("/images/stockvault-abstract-background177709.jpg");
+    background: radial-gradient(ellipse at bottom, #5091DD 0%, #030617 100%);
     background-attachment: fixed;
     background-size: cover;
     color: white;
@@ -70,13 +64,13 @@ header {
 }
 
 .chatBubble {
-    text-align: right;
     position: relative;
-    left: 60%;
+    left: 40%;
     background: #0074bd;
     border-radius: .9em;
     padding: 0.5% 1% 0.5% 0.5%;
-    max-width: 30%;
+    max-width: 50vw;
+    font-size: 1.5vw;
 
 }
 
@@ -84,15 +78,15 @@ header {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 70%;
+    left: 90%;
     width: 0;
     height: 0;
-    border: 50px solid transparent;
+    border: 4vw solid transparent;
     border-top-color: #0074bd;
     border-bottom: 0;
     border-left: 0;
-    margin-left: -50px;
-    margin-bottom: -50px;
+    margin-left: -40px;
+    margin-bottom: -4vw;
 }
 
 #about {
@@ -101,66 +95,122 @@ header {
     padding-left: 5%;
     padding-right: 15%;
     display: flex;
-    justify-content: space-around;
-    column-gap: 20%;
+    flex-basis: auto;
+    column-gap: 10vw;
     font-size: 1.5vw;
     text-align: left;
 }
-#portfolio h2{
-    padding-top: 5%;
-    text-align: left;
-    padding-left: 5%;
+#about h2{
     font-size: 2.5vw;
 }
-#portfolio div{
+#skills {
+    padding-top: 5%;
+    padding-bottom: 5%;
     padding-left: 5%;
-    padding-right: 5%;
+    padding-right: 15%;
     display: flex;
-    justify-content: center;
+    flex-basis: auto;
+    column-gap: 10vw;
     font-size: 1.5vw;
+    text-align: left;
 }
-.aboutProject div{
+#skills h2{
+    font-size: 2.5vw;
+}
+
+#portfolio h1 {
+    padding: 5%;
+    text-align: left;
+    font-size: 2.5vw;
+}
+#portfolio h2{
+    text-align: center;
+    font-size: 2.5vw;
+}
+
+#portfolio div {
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    display: flex;
+    font-size: 2vw;
+}
+
+.aboutProject div {
     position: relative;
     display: flex;
     flex-direction: column;
+    text-align: left;
+    align-items: center;
 }
-.monitorLink{
-    flex-direction:column ;
+
+.monitorLink {
+
+    flex-direction: column;
     text-align: center;
 }
-#contacts{
-    padding-left: 5%;
-    padding-top: 5%;
-    font-size: 1.5vw;
+#mapPlaceholder{
+    display: flex;
+    column-gap: 5%;
 }
-.links{
+#mapFrame{
+    width:50vw;
+    height:50vw;
+}
+ table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ th, td{
+    padding: 10px 20px;
+    border: 1px solid white;
+}
+#contacts {
+    padding: 5%;
+    font-size: smaller;
+
+}
+
+.links {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding-top: 5%;
     padding-bottom: 5%;
 }
-.links div{
+
+.links div {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 }
-.links div a{
+
+.links div a {
     padding: 5%;
     text-decoration: none;
     color: white;
+    font-size: 2vw;
+}
 
+button {
+    max-width: 30vw;
 }
 
 footer {
     padding: 2%;
     bottom: 0;
-    background-image: url("/images/stockvault-abstract-background177709.jpg");
+    background: radial-gradient(ellipse at bottom, #5091DD 0%, #030617 80%);
     background-attachment: fixed;
-
     color: white;
     text-align: center;
+}
+.hidden{
+display:none;
+}
+
+a{
+color:white;
 }
 
 
