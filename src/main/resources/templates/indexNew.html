@@ -1,177 +1,237 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello, World!</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔰</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔰</text></svg>">
     <script type="text/javascript" src="/js/showMapButton.js"></script>
-
-    <div id="navbar">
-        <ul>
-            <li><a class="navbar" href="#home">Home</a></li>
-            <li><a class="navbar" href="#about">About</a></li>
-            <li><a class="navbar" href="#skills">Skills</a></li>
-            <li><a class="navbar" href="#portfolio">Portfolio</a></li>
-            <li><a class="navbar" href="#contacts">Contact Me</a></li>
-        </ul>
-    </div>
 </head>
 
-<body>
-<div id="home" class="content">
-    <div class="chatBubble">
-        <h1>Hi, I'm nieoczywisty.<br>Mostly back-end oriented.But hey you've got to sell yourself somehow, right? :)
-        </h1>
+<body id="home">
+    <nav class="container">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <li><a class="checkdisable active" href="#home">Home</a></li>
+            <li><a class="checkdisable" href="#about">About</a></li>
+            <li><a class="checkdisable" href="#skills">Skills</a></li>
+            <li><a class="checkdisable" href="#portfolio">Portfolio</a></li>
+            <li><a class="checkdisable" href="#contacts">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="messengerWidget">
+            <div class="chatBubble">
+                <p>Hi, I'm Mateusz Żebrowski.<br>Mostly back-end oriented.But hey you've got to sell
+                    yourself
+                    somehow, right? :)</p>
+            </div>
+            <img id="selfie" src="/images/photo.png">
+        </div>
+
+        <section id="about" class="container">
+            <div>
+                <h2 class="hcontainer">About me</h2>
+                <p>Hi. I'm mechanical engineer and computer science enthusiast.
+                    After completing my engineering studies and working for few years I've decided to change my
+                    career
+                    path and started postgraduate studies in programming field.
+                    I'm looking for internship programme. </p>
+            </div>
+        </section>
+        <br>
+        <section id="skills" class="container">
+            <div>
+                <h2 class="hcontainer">Skills</h2>
+                <h3>I have basic knowledge of the follwing technologies: </h3>
+                <p>Java</p>
+                <p>GIT</p>
+                <p>Spring Boot</p>
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>JavaScript</p>
+                <p>SQL</p>
+                <p>JPA</p>
+                <h3>While studying, I used:</h3>
+                <p>InteliJ Idea</p>
+                <p>Eclipse / Sprint Tool Suite</p>
+                <p>Visual Studio Code</p>
+                <p>Heroku</p>
+                <p>GitHub</p>
+                <p>Postman</p>
+            </div>
+        </section>
+        <br>
+        <section id="portfolio" class="container">
+            <h1 class="hcontainer">Portfolio</h1>
+            <h2>Welcome Page</h2>
+            <div class="portfolioItem">
+                <div class="monitorLink">
+                    <a class="alink" href="https://github.com/nieoczywisty/Welcome-Page">
+                        <img class="monitor" src="/images/monitor.png">
+                    </a>
+                    <p>Source Code</p>
+                </div>
+                <div class="aboutProject">
+                    <div>
+                        <p>This project gathers all my knowledge so far. In the back-end I've created spring boot
+                            app
+                            that handles http requests, calls external Rest API found on
+                            <strong><a class="alink" href="https://dane.gov.pl/"> https://dane.gov.pl/</a></strong> and
+                            collects data
+                            in JSON
+                            format.
+                            Using unmarshalling I've crated POJO classes corresponding to data recieved from API.
+                            Collected data contains information such as: GPS positions, signal quality, number of
+                            the
+                            vehicle etc.
+                            from public transportation company in Gdańsk. Then I wanted to present this data
+                            somehow, so
+                            I've added Leaflet map with marked positions of all vehicles.
+                            You can click on any marker and see what line is it. After pressing the button below a
+                            new
+                            iFrame is created and loaded with map populated with collected data and new
+                            table is created, all using some javascript. The table contains basic info of first 10
+                            vehicles from the list. I"ve done a little cheat here because I cannot access model
+                            attributes directly
+                            from javascript. The Json string is first loaded into hidden element and then accessed
+                            in
+                            javascript as variable.
+                        </p>
+                        <button id="showMap">Show Map</button>
+                    </div>
+                </div>
+
+            </div>
+            <div id="mapPlaceholder">
+                <input id="tableData" type="hidden" data-textJSON="${gpsTableData}" />
+                <p hidden id="tableJson" th:text="${gpsTableData}"></p>
+            </div>
+            <h2>Java FX</h2>
+            <div class="portfolioItem">
+                <div class="monitorLink">
+                    <a class="alink" href="https://github.com/nieoczywisty/Welcome-Page">
+                        <img class="monitor" src="/images/monitor.png">
+                    </a>
+                    <p>Source Code</p>
+                </div>
+                <div class="aboutProject">
+                    <div>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen
+                            book.
+                            It has survived not only five centuries, but also the leap into electronic typesetting,
+                            remaining essentially unchanged. It was popularised in the 1960s with the release of
+                            Letraset
+                            sheets
+                            containing Lorem Ipsum passages, and more recently with desktop publishing software like
+                            Aldus
+                            PageMaker
+                            including versions of Lorem Ipsum.</p>
+                    </div>
+                </div>
+            </div>
+            <h2>Swing</h2>
+            <div class="portfolioItem">
+                <div class="monitorLink">
+                    <a class="alink" href="https://github.com/nieoczywisty/Welcome-Page">
+                        <img class="monitor" src="/images/monitor.png">
+                    </a>
+                    <p>Source Code</p>
+                </div>
+                <div class="aboutProject">
+                    <div>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen
+                            book.
+                            It has survived not only five centuries, but also the leap into electronic typesetting,
+                            remaining essentially unchanged. It was popularised in the 1960s with the release of
+                            Letraset
+                            sheets
+                            containing Lorem Ipsum passages, and more recently with desktop publishing software like
+                            Aldus
+                            PageMaker
+                            including versions of Lorem Ipsum.</p>
+                        <button class="open-window">Open</button>
+                    </div>
+                </div>
+            </div>
+            <h2>Plain JAVA</h2>
+            <div class="portfolioItem">
+                <div class="monitorLink">
+                    <a class="alink" href="https://github.com/nieoczywisty/Welcome-Page">
+                        <img class="monitor" src="/images/monitor.png">
+                    </a>
+                    <p>Source Code</p>
+                </div>
+                <div class="aboutProject">
+                    <div>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen
+                            book.
+                            It has survived not only five centuries, but also the leap into electronic typesetting,
+                            remaining essentially unchanged. It was popularised in the 1960s with the release of
+                            Letraset
+                            sheets
+                            containing Lorem Ipsum passages, and more recently with desktop publishing software like
+                            Aldus
+                            PageMaker
+                            including versions of Lorem Ipsum.</p>
+                        <button class="open-window">Open</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <section id="contacts" class="container">
+            <h2>If you liked what I've done here, go ahead and visit my profiles: </h2>
+            <div class="links">
+                <div>
+                    <a href="https://www.linkedin.com/in/nieoczywisty/">
+                        <img src="/images/linkedin_icon.png" alt="LinkedInLogo" style="width:42px;height:42px;">
+                    </a>
+                    <a href="https://www.linkedin.com/in/nieoczywisty/">LinkedIn</a>
+                </div>
+                <div>
+                    <a href="https://hyperskill.org/profile/2066949">
+                        <img src="/images/jetbrains_icon.png" alt="JBALogo" style="width:42px;height:42px;">
+                    </a>
+                    <a href="https://hyperskill.org/profile/2066949">JetBrains Academy</a>
+                </div>
+                <div>
+                    <a href="https://github.com/nieoczywisty">
+                        <img src="/images/github-icon.png" alt="LinkedInLogo" style="width:42px;height:42px;">
+                    </a>
+                    <a href="https://github.com/nieoczywisty">GitHub</a>
+                </div>
+            </div>
+        </section>
     </div>
-    <section id="about">
-        <div>
-            <h2>About me</h2>
-            <p>Hi. I'm mechanical engineer and computer science enthusiast.
-                After completing my engineering studies and working for few years I've decided to change my career path and started postgraduate studies in programming field.
-                I'm looking for internship programme </p>
-
-        </div>
-        <img id="selfie" src="/images/photo.png">
-    </section>
-    <section id="skills">
-        <div>
-            <h2>Skills</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.</p>
-
-        </div>
-    </section>
-    <section id="portfolio">
-        <h1>Portfolio</h1>
-        <h2>Welcome Page</h2>
-        <div>
-            <div class="monitorLink">
-                <a href="https://github.com/nieoczywisty/Welcome-Page">
-                    <img class="monitor" src="/images/monitor.png">
-                </a>
-                <p>Source Code</p>
-            </div>
-            <div class="aboutProject">
-                <div>
-                    <p>This project gathers all my knowledge so far. In the back-end I've created spring boot app that handles http requests, calls external Rest API found on
-                        <a href="https://dane.gov.pl/"> https://dane.gov.pl/</a> and collects data in JSON format.
-                        Using unmarshalling I've crated POJO classes corresponding to data recieved from API.
-                        Collected data contains information such as: GPS positions, signal quality, number of the vehicle etc.
-                        from public transportation company in Gdańsk. Then I wanted to present this data somehow, so I've added Leaflet map with marked positions of all vehicles.
-                        You can click on any marker and see what line is it. After pressing the button below a new iFrame is created and loaded with map populated with collected data and new
-                        table is created, all using some javascript. The table contains basic info of first 10 vehicles from the list. I"ve done a little cheat here because I cannot access model attributes directly
-                        from javascript. The Json string is first loaded into hidden element and then accessed in javascript as variable.
-                    </p>
-                    <button id="showMap">Show Map</button>
-                </div>
-            </div>
-        </div>
-        <div id="mapPlaceholder">
-            <input id="tableData" type="hidden" data-textJSON="${gpsTableData}"/>
-            <p hidden id="tableJson" th:text = "${gpsTableData}"></p>
-        </div>
-        <h2>Java FX</h2>
-        <div>
-            <div class="monitorLink">
-                <a href="https://github.com/nieoczywisty/Welcome-Page">
-                    <img class="monitor" src="/images/monitor.png">
-                </a>
-                <p>Source Code</p>
-            </div>
-            <div class="aboutProject">
-                <div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        It has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                        sheets
-                        containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                        PageMaker
-                        including versions of Lorem Ipsum.</p>
-                </div>
-            </div>
-        </div>
-        <h2>Swing</h2>
-        <div>
-            <div class="monitorLink">
-                <a href="https://github.com/nieoczywisty/Welcome-Page">
-                    <img class="monitor" src="/images/monitor.png">
-                </a>
-                <p>Source Code</p>
-            </div>
-            <div class="aboutProject">
-                <div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        It has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                        sheets
-                        containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                        PageMaker
-                        including versions of Lorem Ipsum.</p>
-                    <button class="open-window">Open</button>
-                </div>
-            </div>
-        </div>
-        <h2>Plain JAVA</h2>
-        <div>
-            <div class="monitorLink">
-                <a href="https://github.com/nieoczywisty/Welcome-Page">
-                    <img class="monitor" src="/images/monitor.png">
-                </a>
-                <p>Source Code</p>
-            </div>
-            <div class="aboutProject">
-                <div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        It has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                        sheets
-                        containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                        PageMaker
-                        including versions of Lorem Ipsum.</p>
-                    <button class="open-window">Open</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="contacts">
-        <h2>If you liked what I've done here, go ahead and visit my profiles: </h2>
-        <div class="links">
-            <div>
-                <a href="https://www.linkedin.com/in/nieoczywisty/">
-                    <img src="/images/linkedin_icon.png" alt="LinkedInLogo" style="width:42px;height:42px;">
-                </a>
-                <a href="https://www.linkedin.com/in/nieoczywisty/">LinkedIn</a>
-            </div>
-            <div>
-                <a href="https://hyperskill.org/profile/2066949">
-                    <img src="/images/jetbrains_icon.png" alt="JBALogo" style="width:42px;height:42px;">
-                </a>
-                <a href="https://hyperskill.org/profile/2066949">JetBrains Academy</a>
-            </div>
-            <div>
-                <a href="https://github.com/nieoczywisty">
-                    <img src="/images/github-icon.png" alt="LinkedInLogo" style="width:42px;height:42px;">
-                </a>
-                <a href="https://github.com/nieoczywisty">GitHub</a>
-            </div>
-        </div>
-    </section>
-    <footer>
+    <br>
+    <footer class="container">
         created by nieoczywisty
     </footer>
-</div>
+
 </body>
+<script>
+    var items = document.getElementsByClassName("checkdisable");
+    for (var i = 0; i < items.length; i++) {
+        items[i].addEventListener("click", disablecheckbox);
+    }
+    function disablecheckbox(){
+        document.getElementById("check").click();
+    }
+</script>
+
 </html>
