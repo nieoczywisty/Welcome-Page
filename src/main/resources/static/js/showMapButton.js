@@ -4,7 +4,7 @@ let vehicles;
     let tableData = document.getElementById("tableJson").innerHTML;
     //console.log(tableData);
     vehicles = JSON.parse(tableData);
-    let mapButton = document.getElementById("showMap");
+    let mapButton = document.getElementById("showMapButton");
     mapButton.onclick = drawMap;
     //console.log(mapButton);
 }

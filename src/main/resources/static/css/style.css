@@ -238,7 +238,7 @@ nav{
 #portfolio div {
    padding: 2%;
     display: flex;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .aboutProject div {
@@ -298,10 +298,21 @@ nav{
     font-size: 25px;
 }
 
-button {
-    max-width: 30vw;
+#showMapButton {
+      background-color: rgba(255, 255, 255, .15);
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
 }
-
+#showMapButton:hover {
+      background-color: rgba(255, 255, 255, .25);
+}
 footer {
 
     padding: 10px;
