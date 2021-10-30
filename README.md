@@ -16,5 +16,6 @@ v. 0.02 -first working state.<br>
 v. 0.03-0.06 -trying to figure out correct settings for heroku hosting.<br>
 v. 0.07 -added leaflet map with vehicles positions.<br>
 v. 0.08 -changed page layout, fixed some resposivity issues.<br>
+v. 0.09 -corrected liks,typos,descriptions.
 # Screenshot
 ![image](welcome-page-image.png)
